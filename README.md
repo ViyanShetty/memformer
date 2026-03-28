@@ -14,14 +14,15 @@ Modern CPUs waste significant time waiting for memory. Prefetchers predict futur
 
 ## Key results
 
-| Benchmark | Access pattern | Vocab size | Accuracy | Compression | Latency |
-|-----------|---------------|------------|----------|-------------|---------|
-| matmul    | Regular strided | 9        | 100.00%  | 0.8x        | 93.58 µs |
-| sort      | Mixed          | 84        | 95.79%   | 3.1x        | 94.02 µs |
-| bfs       | Graph traversal | 125      | 94.68%   | 4.4x        | 98.94 µs |
-| hashtable | Irregular/random | 10,826  | 72.85%   | **338.8x**  | 96.42 µs |
+| Benchmark | Access pattern | Vocab | Accuracy | Compression | Latency |
+|-----------|---------------|-------|----------|-------------|---------|
+| matmul | Regular strided | 9 | 100.00% | 0.8x | 93.58 µs |
+| sort | Mixed | 84 | 95.79% | 3.1x | 94.02 µs |
+| bfs | Graph traversal | 125 | 94.68% | 4.4x | 98.94 µs |
+| hashtable | Irregular/random | 10,826 | 72.85% | 338.8x | 96.42 µs |
+| **ebpf_live** | **Live kernel page faults** | **1,524** | **75.24%** | **96.0x** | **~95 µs** |
 
-Latency is consistent across all benchmarks regardless of vocabulary size — a critical property for hardware deployment.
+> ebpf_live trace collected directly from Linux kernel 6.8.0 via eBPF kprobe on `handle_mm_fault` — no simulation, real OS data.
 
 ---
 
