@@ -22,7 +22,7 @@ Modern CPUs waste significant time waiting for memory. Prefetchers predict futur
 | hashtable | Irregular/random | 10,826 | 72.85% | 338.8x | 96.42 µs |
 | **ebpf_live** | **Live kernel page faults** | **1,524** | **75.24%** | **96.0x** | **~95 µs** |
 
-> ebpf_live trace collected directly from Linux kernel 6.8.0 via eBPF kprobe on `handle_mm_fault` — no simulation, real OS data.
+> ebpf_live trace collected directly from Linux kernel 6.8.0 via eBPF kprobe on `handle_mm_fault` — no simulation, real OS data..
 
 ---
 
